@@ -1,0 +1,37 @@
+{
+  "name": "idpay-checkout",
+  "version": "0.0.1",
+  "dependencies": {
+    "axios": "^1.6.5"
+  },
+  "main": "lib/index.js",
+  "files": [
+    "lib/**/*"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.ts\""
+  },
+  "packageManager": "yarn@4.0.2",
+  "author": "hadiazt",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hadiazt/idpay-checkout.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hadiazt/idpay-checkout/issues"
+  },
+  "homepage": "https://github.com/hadiazt/idpay-checkout#readme",
+  "keywords": [
+    "idpay",
+    "nodejs",
+    "ts",
+    "typescript",
+    "payment"
+  ],
+  "devDependencies": {
+    "@types/node": "^20.11.5",
+    "typescript": "^5.3.3"
+  }
+}
