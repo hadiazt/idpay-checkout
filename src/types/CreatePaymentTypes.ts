@@ -17,3 +17,6 @@ export type Query = {
   desc: String;
   callback: String;
 };
+
+// export const MIN;
+// export const MAX;
