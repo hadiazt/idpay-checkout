@@ -75,6 +75,7 @@ __metadata:
   dependencies:
     "@types/node": "npm:^20.11.5"
     axios: "npm:^1.6.5"
+    tsc: "npm:^2.0.4"
     typescript: "npm:^5.3.3"
   languageName: unknown
   linkType: soft
@@ -99,6 +100,15 @@ __metadata:
   version: 1.1.0
   resolution: "proxy-from-env@npm:1.1.0"
   checksum: fe7dd8b1bdbbbea18d1459107729c3e4a2243ca870d26d34c2c1bcd3e4425b7bcc5112362df2d93cc7fb9746f6142b5e272fd1cc5c86ddf8580175186f6ad42b
+  languageName: node
+  linkType: hard
+
+"tsc@npm:^2.0.4":
+  version: 2.0.4
+  resolution: "tsc@npm:2.0.4"
+  bin:
+    tsc: bin/tsc
+  checksum: 4651d344891d995e62ab7ca64ce0a8597bbdc2d392886c9956d15caab4dc9bfe86e759d3385b3f97c49fb5294194a161d6812673e3f51e46357c82482f32c3ab
   languageName: node
   linkType: hard
 
