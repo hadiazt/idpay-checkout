@@ -16,7 +16,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
-    "dev": "tsc && cls && concurrently \"npx --watch\" \"nodemon -q test/\""
+    "dev": "tsc && cls && node test/"
   },
   "packageManager": "yarn@4.0.2",
   "author": "hadiazt",
