@@ -2,7 +2,10 @@ import { CreatePayment, Query } from "../types/CreatePayment";
 import { Config } from "../config";
 import { IDPay } from "./client";
 
-export const createPayment = async function (this: IDPay, input: CreatePayment) {
+export const createPayment = async function (
+  this: IDPay,
+  input: CreatePayment
+) {
   var Query: Query = {
     name: input.Name ?? undefined,
     mail: input.Mail ?? undefined,
@@ -12,6 +15,7 @@ export const createPayment = async function (this: IDPay, input: CreatePayment) 
     desc: input.Description ?? undefined,
     callback: input.CallBackURL,
   };
+  // console.log(this);
 
   this._Axios("POST", Config.API.CreatePayment, Query);
 };
