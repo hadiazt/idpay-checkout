@@ -1,12 +1,9 @@
-import axios, { AxiosRequestConfig } from "axios";
+import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from "axios";
 import { Config } from "../config";
-import { Query } from "../types/CreatePayment";
+import { Query } from "../types/CreatePaymentTypes";
+import { RequestError } from "../types/AxiosTypes";
 
-export const _Axios = async function (
-  Method: string,
-  URL: string,
-  Data: Query
-) {
+export const _Axios = function (Method: string, URL: string, Data: Query) {
   var config: AxiosRequestConfig = {
     method: Method,
     url: Config.URL + URL,
@@ -17,5 +14,15 @@ export const _Axios = async function (
     },
     data: Data,
   };
-  return axios(config);
+
+  return new Promise<AxiosResponse>((resolve, reject) => {
+    axios(config)
+      .then((res) => {
+        resolve(res);
+      })
+      .catch((e: AxiosError) => {
+        const { error_code, error_message } = e.response.data as RequestError;
+        reject({ error_code, error_message });
+      });
+  });
 };
