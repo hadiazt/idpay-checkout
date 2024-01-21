@@ -5,6 +5,7 @@ Simple Module For IDPay Website Payment Gateway.
 
 TODO
 ```
-add error_code handling
-add limits for entries
 ```
+~~add limits for entries~~
+
+~~add error_code handling~~
