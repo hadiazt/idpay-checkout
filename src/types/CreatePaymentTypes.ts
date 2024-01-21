@@ -42,7 +42,7 @@ export const propertyLengthConstraints: Partial<
   Phone: { MinLength: 11, MaxLength: 11, Optional: true },
   Order_ID: { MinLength: 1, MaxLength: 50, Optional: false },
   Description: { MinLength: 0, MaxLength: 255, Optional: true },
-  CallBackURL: { MinLength: 10, MaxLength: 200, Optional: false },
+  CallBackURL: { MinLength: 10, MaxLength: 2048, Optional: false },
   Amount: {
     MinLength: 1000,
     MaxLength: 500000000,
