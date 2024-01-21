@@ -1,4 +1,4 @@
-export type RequestError = {
-  error_code: Number;
-  error_message: String;
+export type _AxiosErrorTypes = {
+  error_code: number;
+  error_message: string;
 };
