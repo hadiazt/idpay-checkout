@@ -1,12 +1,17 @@
 import { Config } from "../config";
-import { CreatePayment, Query } from "../types/CreatePaymentTypes";
+import { CreatePaymentTypes, Query } from "../types/CreatePaymentTypes";
 import { createPayment } from "./createPayment";
 import { _Axios } from "./axiosHelper";
 import { AxiosResponse } from "axios";
+import { Logger } from "../functions/Logger";
 
 export class IDPay {
-  CreatePayment: (input: CreatePayment) => Promise<AxiosResponse>;
-  protected _Axios: (method: string, url: string, data: Query) => Promise<AxiosResponse>;
+  CreatePayment: (input: CreatePaymentTypes) => Promise<AxiosResponse>;
+  protected _Axios: (
+    method: string,
+    url: string,
+    data: Query
+  ) => Promise<AxiosResponse>;
   protected API_KEY: string;
   protected SandBox: boolean;
 
@@ -16,13 +21,13 @@ export class IDPay {
       API_KEY.length !== Config.API_KEYLength ||
       typeof API_KEY !== "string"
     ) {
-      throw new Error(
+      Logger(
         "Invalid API KEY. Please obtain a valid API key from " + Config.Doc.KEY
       );
     }
 
     if (typeof SandBox !== "boolean") {
-      throw new Error(
+      Logger(
         "Invalid SandBox parameter. It must be a boolean value (true/false)."
       );
     }
