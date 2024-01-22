@@ -1,12 +1,14 @@
 import { Config } from "../config";
-import { CreatePaymentTypes, Query } from "../types/CreatePaymentTypes";
-import { createPayment } from "./createPayment";
-import { _Axios } from "./axiosHelper";
 import { AxiosResponse } from "axios";
+import { _Axios } from "./axiosHelper";
 import { Logger } from "../functions/Logger";
+import { createPayment } from "./Payment/createPayment";
+import { verifyPayment } from "./Payment/verifyPayment";
+import { CreatePaymentTypes, Query } from "../types/CreatePaymentTypes";
 
 export class IDPay {
   CreatePayment: (input: CreatePaymentTypes) => Promise<AxiosResponse>;
+  VerifyPayment: () => Promise<AxiosResponse>;
   protected _Axios: (
     method: string,
     url: string,
@@ -39,3 +41,4 @@ export class IDPay {
 }
 
 IDPay.prototype.CreatePayment = createPayment;
+IDPay.prototype.VerifyPayment = verifyPayment;
