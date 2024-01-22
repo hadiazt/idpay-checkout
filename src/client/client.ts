@@ -8,7 +8,24 @@ import { CreatePaymentTypes } from "../types/CreatePaymentTypes";
 import { VerifyPaymentTypes } from "../types/VerifyPaymentTypes";
 
 export class IDPay {
+  /**
+   * Create CreatePayment object. Wrapper around constructor.
+   * @param  {String} Name [Optional]
+   * @param  {String} Mail [Optional]
+   * @param  {String} Phone [Optional]
+   * @param  {number} Amount [Required]
+   * @param  {String} Order_ID [Required]
+   * @param  {String} Description [Optional]
+   * @param  {String} CallBackURL [Required]
+   * @returns {Promise<AxiosResponse>} A promise that resolve the response.
+   */
   CreatePayment: (input: CreatePaymentTypes) => Promise<AxiosResponse>;
+  /**
+   * Create VerifyPayment object. Wrapper around constructor.
+   * @param  {String} ID [Required]
+   * @param  {String} Order_ID [Required]
+   * @returns {Promise<AxiosResponse>} A promise that resolve the response.   
+   */
   VerifyPayment: (input: VerifyPaymentTypes) => Promise<AxiosResponse>;
   protected _Axios: (
     method: string,
