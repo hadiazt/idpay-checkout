@@ -4,15 +4,19 @@ import { _Axios } from "./axiosHelper";
 import { Logger } from "../functions/Logger";
 import { createPayment } from "./Payment/createPayment";
 import { verifyPayment } from "./Payment/verifyPayment";
-import { CreatePaymentTypes, Query } from "../types/CreatePaymentTypes";
+import {
+  CreatePaymentTypes,
+  CreatePaymentQuery,
+} from "../types/CreatePaymentTypes";
+import { VerifyPaymentTypes } from "../types/VerifyPaymentTypes";
 
 export class IDPay {
   CreatePayment: (input: CreatePaymentTypes) => Promise<AxiosResponse>;
-  VerifyPayment: () => Promise<AxiosResponse>;
+  VerifyPayment: (input: VerifyPaymentTypes) => Promise<AxiosResponse>;
   protected _Axios: (
     method: string,
     url: string,
-    data: Query
+    data: object
   ) => Promise<AxiosResponse>;
   protected API_KEY: string;
   protected SandBox: boolean;
