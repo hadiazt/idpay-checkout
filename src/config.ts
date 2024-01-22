@@ -3,6 +3,7 @@ export const Config = {
   API_KEYLength: 36,
   API: {
     CreatePayment: "payment",
+    VerifyPayment: "payment/verify",
     KEY: "https://panel.idpay.ir/web-services",
   },
 };
