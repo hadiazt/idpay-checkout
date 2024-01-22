@@ -3,11 +3,11 @@ import {
   Query,
   _CreatePaymentTypes,
   propertyLengthConstraints,
-} from "../types/CreatePaymentTypes";
-import { Config } from "../config";
-import { IDPay } from "./client";
+} from "../../types/CreatePaymentTypes";
+import { Config } from "../../config";
+import { IDPay } from "../client";
 import { AxiosResponse } from "axios";
-import { validatePropertyLength } from "../functions/PropertyValidator";
+import { validatePropertyLength } from "../../functions/PropertyValidator";
 
 export const createPayment = function (
   this: IDPay,
