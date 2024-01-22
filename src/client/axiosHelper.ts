@@ -1,10 +1,10 @@
-import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from "axios";
 import { Config } from "../config";
 import { Query } from "../types/CreatePaymentTypes";
 import { _AxiosErrorTypes, _AxiosResponseTypes } from "../types/AxiosTypes";
+import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from "axios";
 
 export const _Axios = function (Method: string, URL: string, Data: Query) {
-  var config: AxiosRequestConfig = {
+  const config: AxiosRequestConfig = {
     method: Method,
     url: Config.URL + URL,
     headers: {
@@ -15,18 +15,27 @@ export const _Axios = function (Method: string, URL: string, Data: Query) {
     data: Data,
   };
 
-  return new Promise((resolve, reject) => {
+  return new Promise<{}>((resolve, reject) => {
     axios(config)
-      .then((res: AxiosResponse) => {        
-        const { id, link } = res.data as _AxiosResponseTypes;
-        if (URL === "payment") {
-          resolve({ ID: id, Link: link });
+      .then((res: AxiosResponse<_AxiosResponseTypes>) => {
+        const { id, link } = res.data;
+        switch (URL) {
+          case "payment":
+            resolve({ ID: id, Link: link });
+            break;
+
+          default:
+            reject("Unsupported URL");
+            break;
         }
       })
-      .catch((e: AxiosError) => {
-        const { error_code, error_message } = e.response
-          .data as _AxiosErrorTypes;
-        reject({ ErrCode: error_code, ErrMessage: error_message });
+      .catch((e: AxiosError<_AxiosErrorTypes>) => {
+        if (!e.response) {
+          reject(e);
+        } else {
+          const { error_code, error_message } = e.response.data;
+          reject({ ErrCode: error_code, ErrMessage: error_message });
+        }
       });
   });
 };
