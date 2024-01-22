@@ -30,6 +30,7 @@ export const createPayment = function (
     const propertyType = typeof propertyValue;
     const PaymentType =
       _CreatePaymentTypes[propertyName as keyof CreatePaymentTypes];
+
     validatePropertyLength(
       propertyValue,
       constraints,
