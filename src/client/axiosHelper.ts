@@ -17,12 +17,10 @@ export const _Axios = function (Method: string, URL: string, Data: Query) {
 
   return new Promise((resolve, reject) => {
     axios(config)
-      .then((res: AxiosResponse) => {
-        console.log(Data);
-        
+      .then((res: AxiosResponse) => {        
         const { id, link } = res.data as _AxiosResponseTypes;
         if (URL === "payment") {
-          resolve({ ID: id, link: link });
+          resolve({ ID: id, Link: link });
         }
       })
       .catch((e: AxiosError) => {
