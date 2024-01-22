@@ -24,7 +24,7 @@ export class IDPay {
       typeof API_KEY !== "string"
     ) {
       Logger(
-        "Invalid API KEY. Please obtain a valid API key from " + Config.Doc.KEY
+        "Invalid API KEY. Please obtain a valid API key from " + Config.API.KEY
       );
     }
 
