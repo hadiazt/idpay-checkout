@@ -1,5 +1,5 @@
-import { PropertyLengthConstraints } from "../types/CreatePaymentTypes";
 import { Logger } from "./Logger";
+import { PropertyLengthConstraints } from "../types/CreatePaymentTypes";
 
 export const validatePropertyLength = (
   value: string | number,
