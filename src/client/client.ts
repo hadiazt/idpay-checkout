@@ -4,10 +4,7 @@ import { _Axios } from "./axiosHelper";
 import { Logger } from "../functions/Logger";
 import { createPayment } from "./Payment/createPayment";
 import { verifyPayment } from "./Payment/verifyPayment";
-import {
-  CreatePaymentTypes,
-  CreatePaymentQuery,
-} from "../types/CreatePaymentTypes";
+import { CreatePaymentTypes } from "../types/CreatePaymentTypes";
 import { VerifyPaymentTypes } from "../types/VerifyPaymentTypes";
 
 export class IDPay {
