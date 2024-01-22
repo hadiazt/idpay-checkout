@@ -1,13 +1,13 @@
 import { IDPay } from "../client";
-import { AxiosResponse } from "axios";
 import { Config } from "../../config";
+import { AxiosResponse } from "axios";
 import {
   CreatePaymentTypes,
   CreatePaymentQuery,
   _CreatePaymentTypes,
   propertyLengthConstraints,
 } from "../../types/CreatePaymentTypes";
-import { validatePropertyLength } from "../../functions/PropertyValidator";
+import { validateProperty } from "../../functions/PropertyValidator";
 
 export const createPayment = function (
   this: IDPay,
@@ -27,16 +27,14 @@ export const createPayment = function (
     const constraints =
       propertyLengthConstraints[propertyName as keyof CreatePaymentTypes];
     const propertyValue = input[propertyName as keyof CreatePaymentTypes];
-    const propertyType = typeof propertyValue;
     const PaymentType =
       _CreatePaymentTypes[propertyName as keyof CreatePaymentTypes];
 
-    validatePropertyLength(
+    validateProperty(
       propertyValue,
-      constraints,
       propertyName,
-      propertyType,
-      PaymentType
+      typeof PaymentType(),
+      constraints
     );
   }
 
