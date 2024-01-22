@@ -18,7 +18,7 @@ export const _CreatePaymentTypes = {
   CallBackURL: String,
 };
 
-export type Query = {
+export type CreatePaymentQuery = {
   name: string;
   mail: string;
   phone: string;

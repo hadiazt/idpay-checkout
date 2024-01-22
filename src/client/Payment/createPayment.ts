@@ -3,7 +3,7 @@ import { AxiosResponse } from "axios";
 import { Config } from "../../config";
 import {
   CreatePaymentTypes,
-  Query,
+  CreatePaymentQuery,
   _CreatePaymentTypes,
   propertyLengthConstraints,
 } from "../../types/CreatePaymentTypes";
@@ -13,7 +13,7 @@ export const createPayment = function (
   this: IDPay,
   input: CreatePaymentTypes
 ): Promise<AxiosResponse> {
-  const Query: Query = {
+  const Query: CreatePaymentQuery = {
     name: input.Name ?? undefined,
     mail: input.Mail ?? undefined,
     phone: input.Phone ?? undefined,

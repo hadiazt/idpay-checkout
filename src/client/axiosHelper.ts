@@ -1,9 +1,13 @@
 import { Config } from "../config";
-import { Query } from "../types/CreatePaymentTypes";
+import { CreatePaymentQuery } from "../types/CreatePaymentTypes";
 import { _AxiosErrorTypes, _AxiosResponseTypes } from "../types/AxiosTypes";
 import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from "axios";
 
-export const _Axios = function (Method: string, URL: string, Data: Query) {
+export const _Axios = function (
+  Method: string,
+  URL: string,
+  Data: CreatePaymentQuery
+) {
   const config: AxiosRequestConfig = {
     method: Method,
     url: Config.URL + URL,
@@ -23,7 +27,6 @@ export const _Axios = function (Method: string, URL: string, Data: Query) {
           case "payment":
             resolve({ ID: id, Link: link });
             break;
-
           default:
             reject("Unsupported URL");
             break;
