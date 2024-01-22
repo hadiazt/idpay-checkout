@@ -1,7 +1,7 @@
 import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from "axios";
 import { Config } from "../config";
 import { Query } from "../types/CreatePaymentTypes";
-import { _AxiosErrorTypes } from "../types/AxiosTypes";
+import { _AxiosErrorTypes, _AxiosResponseTypes } from "../types/AxiosTypes";
 
 export const _Axios = function (Method: string, URL: string, Data: Query) {
   var config: AxiosRequestConfig = {
@@ -15,15 +15,20 @@ export const _Axios = function (Method: string, URL: string, Data: Query) {
     data: Data,
   };
 
-  return new Promise<AxiosResponse>((resolve, reject) => {
+  return new Promise((resolve, reject) => {
     axios(config)
-      .then((res) => {
-        resolve(res);
+      .then((res: AxiosResponse) => {
+        console.log(Data);
+        
+        const { id, link } = res.data as _AxiosResponseTypes;
+        if (URL === "payment") {
+          resolve({ ID: id, link: link });
+        }
       })
       .catch((e: AxiosError) => {
         const { error_code, error_message } = e.response
           .data as _AxiosErrorTypes;
-        reject({ error_code, error_message });
+        reject({ ErrCode: error_code, ErrMessage: error_message });
       });
   });
 };
