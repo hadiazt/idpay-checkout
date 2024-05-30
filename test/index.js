@@ -5,11 +5,11 @@ const Client = IDPayClient("b5ff2465-86c0-4723-8846-c67db53064db", true);
 // Client.CreatePayment({
 //   Name: "String",
 //   Mail: "String",
-//   Phone: "09036812503",
+//   Phone: "......",
 //   Amount: 1000,
 //   Order_ID: "Order_ID",
 //   Description: "String",
-//   CallBackURL: "http://appleid-city.ir",
+//   CallBackURL: "",
 // })
 //   .then((r) => console.log(r))
 //   .catch((e) => console.log(e));
