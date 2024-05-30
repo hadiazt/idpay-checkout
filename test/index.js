@@ -1,18 +1,22 @@
-const { IDPayClient } = require('../lib/main.js')
+const { IDPayClient } = require("../lib/main.js");
 
-const Client = IDPayClient('6a7f99eb-7c20-4412-a972-6dfb7cd253a4', true);
+const Client = IDPayClient("b5ff2465-86c0-4723-8846-c67db53064db", true);
 
 // Client.CreatePayment({
-// Name: "String",
-// Mail: "String",
-// Phone: "09036812503",
-// Amount: 1000,
-// Order_ID: "Order_ID",
-// Description: "String",
-// CallBackURL: "localhost:9000",
-// }).then((r) => console.log(r)).catch((e) => console.log(e))
+//   Name: "String",
+//   Mail: "String",
+//   Phone: "09036812503",
+//   Amount: 1000,
+//   Order_ID: "Order_ID",
+//   Description: "String",
+//   CallBackURL: "http://appleid-city.ir",
+// })
+//   .then((r) => console.log(r))
+//   .catch((e) => console.log(e));
 
 // Client.VerifyPayment({
-//   Order_ID: "a",
-//   ID: "af"
-// }).then((r) => console.log(r)).catch((e) => console.log(e))
+//   Order_ID: "Order_ID",
+//   ID: "a1bc9a8b4cb750c094212b9742e974b5",
+// })
+//   .then((r) => console.log(r))
+//   .catch((e) => console.log(e));

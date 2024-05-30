@@ -1,7 +1,7 @@
 import { Config } from "../config";
 import { AxiosResponse } from "axios";
-import { _Axios } from "./axiosHelper";
 import { Logger } from "../functions/Logger";
+import { _Axios } from "../functions/axiosHelper";
 import { createPayment } from "./Payment/createPayment";
 import { verifyPayment } from "./Payment/verifyPayment";
 import { CreatePaymentTypes } from "../types/CreatePaymentTypes";
@@ -24,7 +24,7 @@ export class IDPay {
    * Create VerifyPayment object. Wrapper around constructor.
    * @param  {String} ID [Required]
    * @param  {String} Order_ID [Required]
-   * @returns {Promise<AxiosResponse>} A promise that resolve the response.   
+   * @returns {Promise<AxiosResponse>} A promise that resolve the response.
    */
   VerifyPayment: (input: VerifyPaymentTypes) => Promise<AxiosResponse>;
   protected _Axios: (
